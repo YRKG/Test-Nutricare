@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriCare - โภชนาการเพื่อสุขภาพ</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                NutriCare
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">หน้าแรก</a></li>
+                <li><a href="#search" class="nav-link">ค้นหาเมนู</a></li>
+                <li><a href="#meal-plan" class="nav-link">แผนการกิน</a></li>
+                <li><a href="#about" class="nav-link">เกี่ยวกับเรา</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="home" class="hero">
+            <h1><i class="fas fa-apple-alt"></i> โภชนาการเพื่อสุขภาพ</h1>
+            <p>เว็บไซต์ให้ความรู้ด้านโภชนาการสำหรับผู้ที่มีโรคประจำตัว<br>
+            ข้อมูลที่ผ่านการตรวจสอบโดยผู้เชี่ยวชาญทางการแพทย์</p>
+        </section>
+
+        <div class="warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>คำเตือน:</strong> ข้อมูลในเว็บไซต์นี้เป็นเพียงคำแนะนำทั่วไป กรุณาปรึกษาแพทย์หรือนักโภชนาการก่อนเปลี่ยนแปลงการรับประทานอาหาร
+        </div>
+
+        <section id="search" class="search-section">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #667eea;">
+                <i class="fas fa-search"></i> ค้นหาเมนูอาหารตามโรค
+            </h2>
+
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="ค้นหาเมนูอาหาร หรือ ชื่อโรค..." id="searchInput">
+                <button class="search-btn" onclick="searchMeals()">
+                    <i class="fas fa-search"></i> ค้นหา
+                </button>
+            </div>
+
+            <div class="disease-filters">
+                <button class="filter-btn active" onclick="filterByDisease('all')">ทั้งหมด</button>
+                <button class="filter-btn" onclick="filterByDisease('diabetes')">เบาหวาน</button>
+                <button class="filter-btn" onclick="filterByDisease('hypertension')">ความดันโลหิตสูง</button>
+                <button class="filter-btn" onclick="filterByDisease('heart')">โรคหัวใจ</button>
+                <button class="filter-btn" onclick="filterByDisease('kidney')">โรคไต</button>
+                <button class="filter-btn" onclick="filterByDisease('cholesterol')">ไขมันในเลือดสูง</button>
+                <button class="filter-btn" onclick="filterByDisease('obesity')">โรคอ้วน</button>
+                <button class="filter-btn" onclick="filterByDisease('gout')">โรคเก๊าต์</button>
+                <button class="filter-btn" onclick="filterByDisease('liver')">โรคตับ</button>
+                <button class="filter-btn" onclick="filterByDisease('gastric')">โรคกระเพาะ</button>
+                <button class="filter-btn" onclick="filterByDisease('anemia')">โรคโลหิตจาง</button>
+            </div>
+        </section>
+
+        <section class="content-grid" id="mealsContainer">
+            <!-- เมนูอาหารจะถูกสร้างด้วย JavaScript -->
+        </section>
+
+        <section id="meal-plan" class="meal-plan">
+            <h2><i class="fas fa-calendar-week"></i> แผนการรับประทานอาหาร 7 วัน</h2>
+            <div class="week-container" id="weekContainer">
+                <!-- แผนการกิน 7 วันจะถูกสร้างด้วย JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 NutriCare - โภชนาการเพื่อสุขภาพ | ข้อมูลผ่านการตรวจสอบโดยผู้เชี่ยวชาญทางการแพทย์</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
+                <i class="fas fa-info-circle"></i> กรุณาปรึกษาแพทย์ก่อนเปลี่ยนแปลงการรับประทานอาหาร
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
