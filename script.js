@@ -133,7 +133,120 @@
 
         ];
 
-        // ข้อมูลแผนการกิน 7 วัน
+        
+const weeklyPlans = {
+    diabetes: [
+        {
+            day: "วันจันทร์",
+            meals: {
+                breakfast: "โจ๊กธัญพืช",
+                lunch: "ข้าวกล้องผัดผักรวม",
+                dinner: "ปลานึ่งมะนาว"
+            }
+        },
+        {
+            day: "วันอังคาร",
+            meals: {
+                breakfast: "ขนมปังโฮลวีท + นมอัลมอนด์",
+                lunch: "สลัดผักผลไม้",
+                dinner: "ต้มจืดมะระยัดไส้"
+            }
+        }
+    ],
+    kidney: [
+        {
+            day: "วันจันทร์",
+            meals: {
+                breakfast: "ข้าวต้มปลา",
+                lunch: "ต้มจืดเต้าหู้หมูสับ",
+                dinner: "ปลานึ่งซีอิ๊ว + ข้าวกล้อง"
+            }
+        },
+        {
+            day: "วันอังคาร",
+            meals: {
+                breakfast: "ไข่ต้ม + ขนมปังโฮลวีท",
+                lunch: "แกงจืดฟักเมล็ดมะตูม",
+                dinner: "สลัดผักไก่ย่าง"
+            }
+        }
+    ],
+    heart: [
+        {
+            day: "วันจันทร์",
+            meals: {
+                breakfast: "ข้าวโอ๊ตผลไม้",
+                lunch: "ปลานึ่งมะนาว",
+                dinner: "สลัดผักผลไม้"
+            }
+        },
+        {
+            day: "วันอังคาร",
+            meals: {
+                breakfast: "ผลไม้รวม + นมถั่วเหลือง",
+                lunch: "แกงจืดฟัก",
+                dinner: "ข้าวกล้อง + ผัดผักบุ้ง"
+            }
+        }
+    ],
+    cholesterol: [
+        {
+            day: "วันจันทร์",
+            meals: {
+                breakfast: "สมูทตี้ผักผลไม้",
+                lunch: "ข้าวโอ๊ตผลไม้",
+                dinner: "ปลาย่าง + สลัดผัก"
+            }
+        },
+        {
+            day: "วันอังคาร",
+            meals: {
+                breakfast: "โจ๊กข้าวกล้อง",
+                lunch: "ผัดผักบุ้งไฟแดง (ปรับสูตร)",
+                dinner: "สลัดผักโขมไก่ย่าง"
+            }
+        }
+    ],
+    obesity: [
+        {
+            day: "วันจันทร์",
+            meals: {
+                breakfast: "ฟรุตโบว์ล + นัท",
+                lunch: "ข้าวกล้อง + สลัดไก่",
+                dinner: "ข้าวโอ๊ตผลไม้"
+            }
+        },
+        {
+            day: "วันอังคาร",
+            meals: {
+                breakfast: "สมูทตี้ผักผลไม้",
+                lunch: "ต้มจืดเต้าหู้หมูสับ",
+                dinner: "ปลานึ่งมะนาว"
+            }
+        }
+    ],
+    anemia: [
+        {
+            day: "วันจันทร์",
+            meals: {
+                breakfast: "โจ๊กตับหมู + ไข่ต้ม",
+                lunch: "ข้าวผัดไก่ + ผักโขม",
+                dinner: "แกงจืดใบแมงลัก"
+            }
+        },
+        {
+            day: "วันอังคาร",
+            meals: {
+                breakfast: "ซีเรียลธัญพืช + นม",
+                lunch: "สลัดผักโขมไก่ย่าง",
+                dinner: "ข้าวกล้อง + ต้มจืดเต้าหู้"
+            }
+        }
+    ]
+};
+
+
+// ข้อมูลแผนการกิน 7 วัน (เดิม)
         const weeklyPlan = [
             {
                 day: "วันจันทร์",
@@ -296,10 +409,23 @@
                     meal.disease.includes(disease)
                 );
                 displayMeals(filteredMeals);
+    displayWeeklyPlanForDisease(disease);
             }
         }
 
-        // ฟังก์ชัน Navigation
+        
+function displayWeeklyPlanForDisease(disease) {
+    const container = document.getElementById('weekContainer');
+    const plan = weeklyPlans[disease];
+    if (!plan) {
+        container.innerHTML = `<p style="text-align:center;">ไม่มีแผนอาหารสำหรับโรคนี้</p>`;
+        return;
+    }
+    container.innerHTML = plan.map(createDayCard).join('');
+}
+
+
+// ฟังก์ชัน Navigation
         function setupNavigation() {
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function(e) {
